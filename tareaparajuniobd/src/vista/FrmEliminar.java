@@ -56,6 +56,7 @@ public class FrmEliminar extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblEliminar);
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("De doble clic en el registro que desea eliminar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

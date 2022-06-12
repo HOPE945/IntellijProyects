@@ -63,11 +63,11 @@ public class FrmActualizar extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblActualizar);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 860, 160));
-        jPanel1.add(txtActualizarNombrePais, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 180, -1));
+        jPanel1.add(txtActualizarNombrePais, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 180, -1));
 
         txtIdActualizarPais.setEditable(false);
         txtIdActualizarPais.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(txtIdActualizarPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 120, -1));
+        jPanel1.add(txtIdActualizarPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 120, -1));
 
         lblTituloAcualizar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblTituloAcualizar.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,16 +85,16 @@ public class FrmActualizar extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Capital Pais");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 20));
-        jPanel1.add(txtCapitalPaisActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 180, 20));
+        jPanel1.add(txtCapitalPaisActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 180, 20));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Total Poblacón");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, 20));
-        jPanel1.add(txtPoblacionActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 180, -1));
+        jPanel1.add(txtPoblacionActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 180, -1));
 
         btnActualizarIPais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/actulizarimg/actualizarimg/actualizar.png"))); // NOI18N
         btnActualizarIPais.setText("Actualizar");
-        jPanel1.add(btnActualizarIPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, 30));
+        jPanel1.add(btnActualizarIPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 130, 120, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,7 +106,7 @@ public class FrmActualizar extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
         );
 
         pack();

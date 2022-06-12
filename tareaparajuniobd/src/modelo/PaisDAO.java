@@ -4,6 +4,7 @@ import conexion.Conector;
 import java.io.SequenceInputStream;
 import java.util.ArrayList;
 import java.sql.ResultSet;
+import modelo.Extras;
 //paso 1 realizar el implements de la interfaz
 //cuando se crea el override ya esta ligada la clase a la cosulta
 //aqui se define el acceso a los datos
@@ -44,10 +45,12 @@ public class PaisDAO implements ConsultasPais{
             String query =("SELECT " 
                     + "p.id_pais, "
                     + "p.nombre_pais, " 
-                    +"p.capital_pais, "
+                    + "p.capital_pais, "
                     + "p.poblacion_pais, "
-                    + "p.fecha_ingreso_pais "
+                    + "p.fecha_ingreso_pais, "
+                    + "p.fecha_actualiza_pais "
                     + " FROM bdconector.pais p ");
+            
         ResultSet rs = c.consultaDatos(query);
         while(rs.next()){
             PaisVO pvo = new PaisVO();
@@ -56,6 +59,8 @@ public class PaisDAO implements ConsultasPais{
             pvo.setCapitalPais(rs.getString(3));
             pvo.setPoblacionPais(rs.getLong(4));
             pvo.setFechaIngPais(rs.getString(5));
+            pvo.setFechaActPais(rs.getString(6));
+            
             
             //este es el que permite llenar nuevos datos
             info.add(pvo);
@@ -75,7 +80,8 @@ public class PaisDAO implements ConsultasPais{
             String query = "UPDATE bdconector.pais " +
                      "SET nombre_pais = '"+p.getNombrePais()+"', "
                     +"capital_pais = '"+p.getCapitalPais()+"', "
-                    +"poblacion_pais = '"+p.getPoblacionPais()+"', "                    
+                    +"poblacion_pais = '"+p.getPoblacionPais()+"', "  
+                    +"fecha_ingreso_pais = '"+p.getFechaIngPais()+"', " 
                     +"fecha_actualiza_pais ='"+p.getFechaActPais()+"' "
                     +"WHERE id_pais = "+p.getIdPais();            
             c.consultasMultiples(query);  

@@ -55,7 +55,7 @@ public class Conector {
             this.statement = this.connection.createStatement();
             resultado = this.statement.executeUpdate(query);
         } catch (Exception e) {
-            System.err.println("Error[MCM]: " + e.getMessage());
+            System.err.println("Error[MConsultasMultiples]: " + e.getMessage());
             return 0;
         }
         return resultado;

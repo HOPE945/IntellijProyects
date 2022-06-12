@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import modelo.PaisDAO;
 import modelo.PaisVO;
+import modelo.Extras;
 import vista.FrmMostrar;
 
 // despues de crear la clase y hacer los implements importar los metodos abstractos 
@@ -17,11 +18,13 @@ public class ControladorMostrar implements ActionListener, WindowListener{
     FrmMostrar vMo = new FrmMostrar();
     PaisVO pvo =new PaisVO();
     PaisDAO pdao = new PaisDAO();
+    Extras ext = new Extras();
 
     public ControladorMostrar(FrmMostrar vMo, PaisVO pvo, PaisDAO pdao) {
         this.vMo = vMo;
         this.pvo = pvo;
         this.pdao = pdao;
+        //this.ext = ext;
         
         //escuchadores para boton y ventana
         vMo.btnCancelar.addActionListener(this);
@@ -42,12 +45,15 @@ public class ControladorMostrar implements ActionListener, WindowListener{
         m.addColumn("Nombre del País");
         m.addColumn("Capital del País");
         m.addColumn("Población del País");
+        m.addColumn("Fecha ingreso País");
+        m.addColumn("Última actualización");
         
         //este es de las filas
        //aqui fue donde me dio error
         for(PaisVO pvo : pdao.consultar()){
             m.addRow(new Object[]{pvo.getIdPais(), pvo.getNombrePais(), 
-                pvo.getCapitalPais(), pvo.getPoblacionPais() });
+                pvo.getCapitalPais(), pvo.getPoblacionPais(), 
+                pvo.getFechaIngPais(), pvo.getFechaActPais()});
         }
        
         //definiendo medidas de las columnas
@@ -68,7 +74,13 @@ public class ControladorMostrar implements ActionListener, WindowListener{
         cTres.setMaxWidth(150);
         cTres.setMinWidth(150);
         
+        TableColumn cCuatro = vMo.tblMostrar.getColumnModel().getColumn(4);
+        cCuatro.setMaxWidth(190);
+        cCuatro.setMinWidth(190);
         
+        TableColumn cCinco = vMo.tblMostrar.getColumnModel().getColumn(5);
+        cCinco.setMaxWidth(190);
+        cCinco.setMinWidth(190);      
         
     }
     

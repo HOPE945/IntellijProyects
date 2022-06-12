@@ -50,7 +50,7 @@ public class ControladorActualizar implements ActionListener, MouseListener, Win
         m.addColumn("Nombre del País");
         m.addColumn("Capital del País");
         m.addColumn("Población del País"); 
-        //m.addColumn("Fecha ingreso del Pais");
+        m.addColumn("Fecha ingreso del Pais");
         m.addColumn("Fecha actualizacion pais");
         
             
@@ -60,7 +60,7 @@ public class ControladorActualizar implements ActionListener, MouseListener, Win
                 pvo.getNombrePais(), 
                 pvo.getCapitalPais(), 
                 pvo.getPoblacionPais(), 
-                //pvo.getFechaIngPais(),
+                pvo.getFechaIngPais(),
                 pvo.getFechaActPais()});
        
         }        
@@ -77,23 +77,19 @@ public class ControladorActualizar implements ActionListener, MouseListener, Win
         vAct.txtActualizarNombrePais.setText(String.valueOf(vAct.tblActualizar.getValueAt(selecRow, 1)));
         vAct.txtCapitalPaisActualizar.setText(String.valueOf(vAct.tblActualizar.getValueAt(selecRow, 2)));
         vAct.txtPoblacionActualizar.setText(String.valueOf(vAct.tblActualizar.getValueAt(selecRow, 3)));        
-        //intentos por mostrar la fecha
-        //pvo.setFechaIngPais(String.valueOf(vAct.tblActualizar.getValueAt(selecRow, 4)));        
-       // pvo.setFechaActPais(Extras.fechaHoy());
-       
-      
+        //intentos por mostrar la fecha ingreso ya
+        pvo.setFechaIngPais(String.valueOf(vAct.tblActualizar.getValueAt(selecRow, 4)));  
+        //fecha actualizacion YA
+        pvo.setFechaActPais(Extras.fechaHoy());
        
     }
      
-    
-    
-    
     private void actualizar(){
     pvo.setIdPais(Integer.parseInt(vAct.txtIdActualizarPais.getText()));
     pvo.setNombrePais(vAct.txtActualizarNombrePais.getText());
     pvo.setCapitalPais(vAct.txtCapitalPaisActualizar.getText());
     pvo.setPoblacionPais(Long.parseLong(vAct.txtPoblacionActualizar.getText()));
-    //pvo.getFechaIngPais();
+    pvo.getFechaIngPais();
     pvo.getFechaActPais();
     
     if(pdao.actualizar(pvo) == true) {
@@ -101,8 +97,7 @@ public class ControladorActualizar implements ActionListener, MouseListener, Win
         vAct.txtActualizarNombrePais.setText("");
         vAct.txtCapitalPaisActualizar.setText("");
         vAct.txtPoblacionActualizar.setText("");
-        //pvo.getFechaIngPais();
-       
+        pvo.getFechaIngPais();       
          pdao.actualizar(pvo);
        
     } else{
